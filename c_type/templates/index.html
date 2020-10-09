@@ -1,4 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}- 성격유형테스트{% endblock %}
 
+{% block content %}
 <form action="{% url 'c_type:result' %}" method="POST">
     {% csrf_token %}
     <div class="rdo-grp">
@@ -75,3 +78,5 @@
 
 
 
+
+{% endblock %}

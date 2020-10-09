@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-import c_type.views
+import accounts.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('photo/',include('photo.urls')),
     path('c_type/',include('c_type.urls')),
     path('accounts/',include('accounts.urls')),
+    path('',accounts.views.mainpage),
 ]
 # urlpatterns += static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)
 # aws s3을 사용함으로써 제거

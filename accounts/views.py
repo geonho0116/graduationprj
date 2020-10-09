@@ -12,3 +12,6 @@ def register(request):
     else:
             user_form = RegisterForm()
     return render(request,'registration/register.html',{'form':user_form})
+
+def mainpage(request):
+    return render(request,'registration/main.html')
