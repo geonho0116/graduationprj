@@ -18,7 +18,7 @@ class PhotoUploadView(LoginRequiredMixin,CreateView):
         form.instance.author_id = self.request.user.id
         if form.is_valid():
             form.instance.save()
-            return redirect('/')
+            return redirect('/photo')
         else:
             return self.render_to_response({'form':form})
 

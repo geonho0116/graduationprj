@@ -1,20 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+	<link rel="icon" href="/static/img/Fevicon.png" type="image/png">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/vendors/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/vendors/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/vendors/linericon/style.css">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/vendors/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/vendors/flat-icon/font/flaticon.css">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/vendors/nice-select/nice-select.css">
+    <link rel="stylesheet" href="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/css/style.css">
+    <script src="https://ddobagi.s3.ap-northeast-2.amazonaws.com/static/js/main.js"></script>
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"-->
+<!--          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+<!--            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"-->
+<!--        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"-->
+<!--            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
 
     <title>또바기 {% block title %}{% endblock %}</title>
 </head>
-<body>
+<body class="bg-shape">
  <header class="header_area">
      <div class="main_menu">
          <nav class="navbar navbar-expand-lg navbar-light">
@@ -46,7 +60,15 @@
                              <li class="nav-item"><a class="nav-link" href="/">여행지 추천</a>
                              <li class="nav-item"><a class="nav-link" href="{%url 'c_type:index' %}">성격유형</a>
                          </ul></li>
-                         <li class="nav-item"><a class="nav-link" href="{% url 'photo:photo_list' %}" class="nav-link">커뮤니티</a></li>
+<!--                         <li class="nav-item"><a class="nav-link" href="{% url 'photo:photo_list' %}" class="nav-link">커뮤니티</a></li>-->
+                         <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                              aria-expanded="false">커뮤니티</a>
+                            <ul class="dropdown-menu">
+                              <li class="nav-item"><a class="nav-link" href="{% url 'photo:photo_list' %}">글 목록</a></li>
+                              <li class="nav-item"><a class="nav-link" href="{% url 'photo:photo_upload' %}">글 작성</a></li>
+                            </ul>
+                         </li>
                          <li class="nav-item"><a class="nav-link" href="contact.html">공지사항</a></li>
                      </ul>
                  </div>

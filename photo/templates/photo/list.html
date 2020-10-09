@@ -2,12 +2,12 @@
 {% block title %}- List{% endblock %}
 
 {% block content %}
-    <hr>
+<!--    <a href="{% url 'photo:photo_upload'%}" class="btn btn-xs btn-success" style="position: fixed; float:right; right:100px; top:100px;">글쓰기</a>-->
     {% for post in photos %}
-        <div class="row float-left" style="width:36%;">
+        <div class="row float-left" style="width:36%; position: relative; top:100px;">
             <div class="col-md-2"></div>
-            <div class="col-md-8 panel panel-default">
-                <p><img src="{{post.photo.url}}" style="width:250px; height:250px;"></p>
+            <div class="col-md-8 panel panel-default" style="width:36%;">
+                <p><img src="{{post.photo.url}}" style="width:280px; height:280px;"></p>
                 <button type="button" class="btn btn-xs btn-info">
                     {{post.author.username}}</button>
                 <p>{{post.text|linebreaksbr}}</p>
