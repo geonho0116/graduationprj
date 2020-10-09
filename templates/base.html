@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <title>또바기 {% block title %}{% endblock %}</title>
+</head>
+<body>
+ <header class="header_area">
+     <div class="main_menu">
+         <nav class="navbar navbar-expand-lg navbar-light">
+             <div class="container box_1620">
+                 <a class="navbar-brand logo_h" href="index.html"></a>
+                 <a class="button" href="index.html">또바기</a>
+                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+
+                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                     <ul class="nav navbar-nav menu_nav justify-content-end">
+                         <li class="nav-item active"><a class="nav-link" href="index.html">HOME</a></li>
+                         <li class="nav-item"><a class="nav-link" href="about.html">로그인</a></li>
+                         <li class="nav-item"><a class="nav-link" href="package.html">회원가입</a>
+                         <li class="nav-item submenu dropdown">
+                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">추천 테스트</a>
+                         <ul class="dropdown-menu">
+                             <li class="nav-item"><a class="nav-link" href="amentities.html">여행지 추천</a>
+                             <li class="nav-item"><a class="nav-link" href="mbti.html">성격유형</a>
+                         </ul></li>
+                         <li class="nav-item submenu dropdown">
+                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">커뮤니티</a>
+                             <ul class="dropdown-menu">
+                                 <li class="nav-item"><a class="nav-link" href="blog.html">여행 후기</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="blog-details.html">수다방</a></li>
+                             </ul></li>
+                         <li class="nav-item"><a class="nav-link" href="contact.html">공지사항</a></li>
+                     </ul>
+<!--            <div class="nav-right text-center text-lg-right py-4 py-lg-0">-->
+<!--              <a class="button" href="#">My Page</a>-->
+<!--            <div>-->
+                 </div>
+             </div>
+         </nav>
+     </div>
+ </header>
+  <!--================Header Menu Area =================-->
+
+<div class="container">
+    <header class="header clearfix">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">또바기</a>
+            <ul class="nav">
+                <li class="nav-item"><a href="/" class="active nav-link ">Home</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a href="#" class="nav-link">Welcome, {{user.get_username}}</a></li>
+                <li class="nav-item"><a href="{% url 'photo:photo_upload' %}" class="nav-link">Upload</a></li>
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                {% else %}
+                <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Signup</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+
+    <footer class="footer">
+        <p></p>
+    </footer>
+</div>
+
+
+</body>
+</html>
