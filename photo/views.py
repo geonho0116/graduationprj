@@ -1,14 +1,20 @@
 from django.shortcuts import render,redirect
 from .models import Photo
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView,DeleteView,UpdateView
 from django.contrib.auth.decorators import login_required #함수형 뷰에 사용
 from django.contrib.auth.mixins import LoginRequiredMixin #클래스형 뷰에 사용
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator
+
 
 @login_required
 def photo_list(request):
     photos = Photo.objects.all()
-    return render(request,'photo/list.html',{'photos':photos})
+    paginator = Paginator(photos,3)
+    page=request.GET.get('page')
+    posts = paginator.get_page(page)
+    return render(request,'photo/list.html',{'photos':photos,'posts':posts})
 
 class PhotoUploadView(LoginRequiredMixin,CreateView):
     model = Photo
