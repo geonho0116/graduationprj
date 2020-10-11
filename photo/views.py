@@ -11,10 +11,7 @@ from django.core.paginator import Paginator
 @login_required
 def photo_list(request):
     photos = Photo.objects.all()
-    paginator = Paginator(photos,3)
-    page=request.GET.get('page')
-    posts = paginator.get_page(page)
-    return render(request,'photo/list.html',{'photos':photos,'posts':posts})
+    return render(request,'photo/list.html',{'photos':photos})
 
 class PhotoUploadView(LoginRequiredMixin,CreateView):
     model = Photo
