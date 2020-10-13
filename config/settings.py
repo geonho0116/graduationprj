@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from config import secret_keys
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +27,7 @@ SECRET_KEY = 'iw21*r23)5j$la5wt((&!w3rni1u^+uf_1nljfzthr!%5oee-s'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
 
 
 # Application definition
@@ -88,7 +89,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-DATABASES['default'].update(dj_database_url.config(conn_max_age=500)) #
+DATABASES['default'].update(dj_database_url.config(conn_max_age=500)) #db엑세스타임변경
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -132,8 +133,8 @@ LOGIN_REDIRECT_URL = '/' # 로그인 이후에 이동되는 페이지는 profile
 DISQUS_WEBSITE_SHORTNAME = 'ddobagi'
 SITE_ID = 1
 
-AWS_ACCESS_KEY_ID = 'AKIA2O6IHRK3BMFGFEW2'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = secret_keys.keys.access_key
+AWS_SECRET_ACCESS_KEY = secret_keys.keys.secret_access_key
 AWS_REGION = 'ap-northeast-2'
 AWS_STORAGE_BUCKET_NAME = 'ddobagi'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (AWS_STORAGE_BUCKET_NAME, AWS_REGION)
@@ -149,7 +150,7 @@ STATIC_URL = 'http://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 # STATIC_URL = '/static/'
 # STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
