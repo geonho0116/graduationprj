@@ -14,6 +14,11 @@ from pathlib import Path
 import os
 import dj_database_url
 from config import secret_keys
+import sys
+sys.modules['django.utils.six.moves.urllib.parse'] = __import__('six.moves.urllib_parse',
+fromlist=['urlencode'])
+sys.modules['django.utils.six.moves.urllib.request'] = __import__('six.moves.urllib_request',
+fromlist=['urlopen'])
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
