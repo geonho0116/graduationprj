@@ -25,6 +25,7 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('',accounts.views.mainpage),
     path('notice/',include('notice.urls')),
+    path('recommendApp/',include('recommendApp.urls')),
 ]
 # urlpatterns += static(settings.MEDIA_URL , document_root=settings.MEDIA_ROOT)
 # aws s3을 사용함으로써 제거
