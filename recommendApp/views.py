@@ -15,12 +15,12 @@ import warnings
 # def bar(request):
 
 
-def index(request):
+def recommend_index(request):
     test = Test.objects
-    return render(request, 'index.html', {'tests': test})
+    return render(request, 'recommend_index.html', {'tests': test})
 
 
-def new(request):
+def recommend_new(request):
     test = Test()
     test.name = request.POST.get('name')
     test.local = request.POST.get('local')
@@ -196,4 +196,4 @@ def new(request):
             for local_item in local_id:
                 return (local_list[local_item])
 
-    return render(request, 'result.html', {'localtest': localtest})
+    return render(request, 'recommend_result.html', {'localtest': localtest})

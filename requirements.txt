@@ -1,10 +1,11 @@
-asgiref==3.3.0
+asgiref==3.2.10
 boto3==1.16.1
 botocore==1.19.1
 cloudpickle==1.6.0
 colorama==0.4.4
 commonmark==0.9.1
 decorator==4.4.2
+disqus==0.0.4
 dj-database-url==0.5.0
 Django==3.1.2
 django-disqus==0.5
@@ -26,9 +27,11 @@ pytz==2020.1
 rich==9.0.1
 s3transfer==0.3.3
 scikit-learn==0.23.2
+scikit-surprise==1.1.1
 scipy==1.5.3
 six==1.15.0
 sqlparse==0.4.1
+surprise==0.1
 threadpoolctl==2.1.0
 tqdm==4.50.2
 Twisted==16.2.0

@@ -15,10 +15,10 @@ import os
 import dj_database_url
 from config import secret_keys
 import sys
-# sys.modules['django.utils.six.moves.urllib.parse'] = __import__('six.moves.urllib_parse',
-# fromlist=['urlencode'])
-# sys.modules['django.utils.six.moves.urllib.request'] = __import__('six.moves.urllib_request',
-# fromlist=['urlopen'])
+sys.modules['django.utils.six.moves.urllib.parse'] = __import__('six.moves.urllib_parse',
+fromlist=['urlencode'])
+sys.modules['django.utils.six.moves.urllib.request'] = __import__('six.moves.urllib_request',
+fromlist=['urlopen'])
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,9 +30,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'iw21*r23)5j$la5wt((&!w3rni1u^+uf_1nljfzthr!%5oee-s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','.herokuapp.com']
+ALLOWED_HOSTS = ['.compute.amazonaws.com','127.0.0.1','localhost']
 
 
 # Application definition
