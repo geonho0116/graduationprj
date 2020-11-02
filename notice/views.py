@@ -6,7 +6,7 @@ from .form import NoticePost
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'recommend_index.html')
 
 
 def detail(request, notice_id):

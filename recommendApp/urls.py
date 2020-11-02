@@ -5,7 +5,7 @@ from .views import *
 app_name = 'recommendApp'
 
 urlpatterns = [
-    path('',index,name='index'),
-    path('result/',new, name='result'),
+    path('',recommend_index,name='recommend_index'),
+    path('result/',recommend_new, name='recommend_result'),
 
 ]
