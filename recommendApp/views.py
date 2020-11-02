@@ -32,10 +32,6 @@ def recommend_new(request):
         if (request.POST.get('q1') == '1'):
             if (request.POST.get('q2') == '1'):
                 if (request.POST.get('q3') == '1'):
-<<<<<<< HEAD
-=======
-                    num = pd.read_csv('뚜벅혼자관광.csv', encoding="utf-8", sep=",", error_bad_lines=False)
->>>>>>> 399c8aa823fb9f2eb64bb64b596f5fc6baa4782d
                     f = open('뚜벅혼자관광.csv', 'a', newline='', encoding='utf-8')
                     wr = csv.writer(f)
                     wr.writerow([test.name, test.local, test.rating])
@@ -127,13 +123,8 @@ def recommend_new(request):
 
                     warnings.filterwarnings('ignore')
                     data = pd.read_csv('자차2인휴양.csv', encoding="utf-8", sep=",", error_bad_lines=False)
-<<<<<<< HEAD
             elif (request.POST.get('q2') == '3'):
                 if (request.POST.get('q3') == '1'):
-=======
-            elif (request.POST.get('q2') == '2'):
-                if (request.POST.get('q3') == '3'):
->>>>>>> 399c8aa823fb9f2eb64bb64b596f5fc6baa4782d
                     f = open('자차3인관광.csv', 'a', newline='', encoding='utf-8')
                     wr = csv.writer(f)
                     wr.writerow([test.name, test.local, test.rating])
@@ -150,16 +141,8 @@ def recommend_new(request):
 
                     warnings.filterwarnings('ignore')
                     data = pd.read_csv('자차3인휴양.csv', encoding="utf-8", sep=",", error_bad_lines=False)
-<<<<<<< HEAD
     df = data[['id', '여행지', 'rating']]
     df = df.drop_duplicates(['id', '여행지'], keep="last")
-=======
-
-    if (len(data) == 900000):
-        data.drop([data.index[1]])
-    df = data[['id', '여행지', 'rating']]
-    df = df.drop_duplicates(['id', '여행지', 'rating'], keep="last")
->>>>>>> 399c8aa823fb9f2eb64bb64b596f5fc6baa4782d
 
     def recur_dictify(frame):
         if len(frame.columns) == 1:
