@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'iw21*r23)5j$la5wt((&!w3rni1u^+uf_1nljfzthr!%5oee-s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.compute.amazonaws.com','127.0.0.1','localhost']
 

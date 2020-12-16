@@ -38,8 +38,6 @@ def photo_delete(request,pk):
         post.delete()
     return render(request,'photo/list.html',{'photos':photos})
 
-
-
 class PhotoUpdateView(LoginRequiredMixin,UpdateView):
     model = Photo
     fields = ['photo','text']
@@ -50,4 +48,7 @@ class PhotoUpdateView(LoginRequiredMixin,UpdateView):
             return redirect('/photo')
         else:
             return redirect('/photo')
+<<<<<<< HEAD
                 # self.render_to_response({'form':form})
+=======
+>>>>>>> 9c5a1c77d224f3b7f06f1aab499c609e2b7d2804
