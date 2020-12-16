@@ -44,3 +44,10 @@ class PhotoUpdateView(LoginRequiredMixin,UpdateView):
     model = Photo
     fields = ['photo','text']
     template_name = 'photo/update.html'
+    def form_valid(self, form):
+        if form.instance.author_id == self.request.user.id:
+            form.instance.save()
+            return redirect('/photo')
+        else:
+            return redirect('/photo')
+                # self.render_to_response({'form':form})
